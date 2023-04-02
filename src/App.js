@@ -14,16 +14,27 @@ function App() {
 
     
 
-    console.log(characterApi);
+    
     setCharacters(characterApi.results);
   };
   return (
     <div className="App">
       <header className="App-header">
         <h1 className="Title">Rick & Morty</h1>
-        <Characters />
-        <img src={imagenrickmorty} alt="Rick & Morty" className="img-home" />
-        <button onClick={reqapi} className="btn-search">Search Character</button>
+
+        {characters ?(
+          <Characters characters={characters} setCharacters={setCharacters}/>
+          ) : (
+
+              <>    
+              <img src={imagenrickmorty} alt="Rick & Morty" className="img-home" />
+              <button onClick={reqapi} className="btn-search">Search Character</button></>
+          )
+
+      }
+
+        
+
       </header>
     </div>
   );
